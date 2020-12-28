@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Installing Foreman and Puppet on Centos 8
+# Installing Foreman and Puppet on Centos 7
 
 sudo systemctl disable firewalld
 sudo foreman-installer
