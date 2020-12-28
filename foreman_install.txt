@@ -11,7 +11,7 @@ sudo systemctl disable firewalld
 sudo systemctl stop firewalld
 
 sudo hostnamectl set-hostname foreman.onsrud.home
-sudo echo "10.10.10.117 foreman.onsrud.home" >> /etc/hosts
+sudo echo "10.10.10.140 foreman.onsrud.home" >> /etc/hosts
 
 sudo yum install -y chrony
 sudo timedatectl set-timezone America/Chicago
