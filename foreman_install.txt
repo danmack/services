@@ -29,7 +29,7 @@ sudo foreman-installer
 
 Configure your dhcp server to point to the foreman server. 
 Set option 6 for the default route and options 15 to specify the local domain.
-These are the addtional dhcp options I specify in dd-wrt's dhcpd options.
+These are the addtional dhcp options I specify in dd-wrt's additional dnsmasq options.
 
 dhcp-boot=pxelinux.0,foreman.onsrud.home,10.10.10.140
 dhcp-option=6,10.10.10.1
