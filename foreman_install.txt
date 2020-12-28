@@ -4,6 +4,8 @@
 
 sudo yum update
 sudo yum upgrade
+sudo yum -y install epel-release
+
 
 sudo systemctl disable firewalld
 sudo systemctl stop firewalld
@@ -18,9 +20,15 @@ sudo timedatectl set-timezone America/Chicago
 
 sudo systemctl enable --now chronyd
 
-sudo yum install -y https://yum.puppet.com/puppet6-release-el-8.noarch.rpm
+#yum install -y rubygem-logging.noarch
+#yum install -y rubygem-multi_json
+#yum install -y rubygem-highline
+#yum install -y  rubygem-kafo
+#yum install -y rubygem-clamp
+#yum install -y rubygem-little-plugger
 
-sudo yum install -y https://yum.theforeman.org/releases/2.1/el8/x86_64/foreman-release.rpm
+sudo yum -y install https://yum.puppet.com/puppet6-release-el-7.noarch.rpm
+sudo yum -y install https://yum.theforeman.org/releases/1.23/el7/x86_64/foreman-release.rpm
 
 sudo yum install -y foreman-installer
 
