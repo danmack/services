@@ -1,28 +1,20 @@
 #!/bin/sh
 
-# Installing Foreman and Puppet on Centos 7
+# Installing Foreman and Puppet on top of clean install of minimal Centos 7
 
 sudo yum update -y
 sudo yum upgrade -y
 sudo yum install -y epel-release
 
-
 sudo systemctl disable firewalld
 sudo systemctl stop firewalld
 
-sudo hostnamectl set-hostname foreman.onsrud.home
-sudo echo "10.10.10.140 foreman.onsrud.home" >> /etc/hosts
+sudo hostnamectl set-hostname foreman.onsrud.home          # change the hostname
+sudo echo "10.10.10.140 foreman.onsrud.home" >> /etc/hosts # and address to meet your needs
 
 sudo yum install -y chrony
 sudo timedatectl set-timezone America/Chicago
 sudo systemctl enable --now chronyd
-
-#yum install -y rubygem-logging.noarch
-#yum install -y rubygem-multi_json
-#yum install -y rubygem-highline
-#yum install -y  rubygem-kafo
-#yum install -y rubygem-clamp
-#yum install -y rubygem-little-plugger
 
 sudo yum -y install https://yum.puppet.com/puppet6-release-el-7.noarch.rpm
 sudo yum -y install https://yum.theforeman.org/releases/1.23/el7/x86_64/foreman-release.rpm
