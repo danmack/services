@@ -2,6 +2,8 @@
 
 # Installing Foreman and Puppet on top of clean install of minimal Centos 7
 
+# default username, password and connection url are displayed at the end of the install 
+
 sudo yum update -y
 sudo yum upgrade -y
 sudo yum install -y epel-release
