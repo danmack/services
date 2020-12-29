@@ -3,7 +3,7 @@ Run syslog-ng in a docker container. Allows servers to log remotely to this cent
 
 docker build .
 
-docker run --name syslog-ng -d -v /var/log/remote_logs:/var/log -p 514:514/udp 84b195bb7364
+docker run --name syslog-ng -d -v /var/log/remote_logs:/var/log -p 514:514/udp <your container id>
 
 Configure your servers to log remotely to this service.
 
