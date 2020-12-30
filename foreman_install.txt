@@ -1,6 +1,6 @@
-#!/bin/sh
 
-# Installing Foreman and Puppet on top of clean install of minimal Centos 7
+
+# Steps for Installing Foreman and Puppet on top of clean install of minimal Centos 7
 
 # default username, password and connection url are displayed at the end of the install 
 
