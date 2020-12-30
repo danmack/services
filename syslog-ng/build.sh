@@ -1,10 +1,12 @@
 #!/bin/sh
+set -e
 
 CONTAINER_NAME="syslog-ng-lab"
+IMAGENAME=syslog-ng-lab
+CONTAINER_FE="podman"  # or CONTAINER_FE="docker"
 
-docker container stop ${CONTAINER_NAME}  > /dev/null 2>&1
-docker container rm ${CONTAINER_NAME}  > /dev/null 2>&1
-
+$CONTAINER_FE container stop ${CONTAINER_NAME} || true > /dev/null 2>&1
+$CONTAINER_FE container rm ${CONTAINER_NAME}   || true > /dev/null 2>&1
 
 # minimal syslog-ng config
 
@@ -36,18 +38,11 @@ log {  source(syslog_udp); destination(d_remote_logs); };
 
 EOF
 
-
-OUTPUT=$(docker build --rm=true --force-rm=true . | grep "Successfully built")
-CONTAINER=$(echo $OUTPUT | cut -d' ' -f3)
-echo $OUTPUT
+$CONTAINER_FE build -t $IMAGENAME --rm=true --force-rm=true .
 echo ""
 echo "Start your container with the command:"
 echo ""
-echo "docker run --name ${CONTAINER_NAME} -d -v ${PWD}/logs:/var/log -p 514:514/udp ${CONTAINER}"
+echo "mkdir -p logs; $CONTAINER_FE run --name ${CONTAINER_NAME} -d -v ${PWD}/logs:/var/log -p 514:514/udp ${IMAGENAME}"
 
 rm syslog-ng.conf
-
-
-
-
 
