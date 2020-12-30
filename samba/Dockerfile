@@ -2,7 +2,7 @@ FROM alpine:latest
 
 RUN apk --update upgrade && apk add samba-server wget 
 
-ADD configs/smb.conf /etc/samba/smb.conf
+ADD smb.conf /etc/samba/smb.conf
 
 EXPOSE 137/udp 138/udp 139 445 
 
